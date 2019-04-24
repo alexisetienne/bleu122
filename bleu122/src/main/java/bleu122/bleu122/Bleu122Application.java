@@ -8,6 +8,7 @@ public class Bleu122Application {
 
 	public static void main(String[] args) {
 		SpringApplication.run(Bleu122Application.class, args);
+		System.out.println("hello ");
 	}
 
 }
