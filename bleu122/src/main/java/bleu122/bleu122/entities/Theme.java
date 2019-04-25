@@ -1,19 +1,34 @@
 package bleu122.bleu122.entities;
 
-public class Theme {
+import java.io.Serializable;
+import java.util.Collection;
+
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+@Entity
+public class Theme implements Serializable {
+	@Id @GeneratedValue
+	private int IdTheme;
 	private String Theme;
-	private int IdQuestion;
+	@OneToMany(mappedBy="theme",fetch=FetchType.LAZY)
+	private Collection<Question> questions;
 	
-	public Theme(String Theme, int IdQuestion) {
+	public Theme( int IdTheme,String Theme    ) {
+		this.IdTheme = IdTheme;
 		this.Theme = Theme;
-		this.IdQuestion = IdQuestion;
-		
 		
 	}
 
-	@Override
-	public String toString() {
-		return "Themes [Theme=" + Theme + ", IdQuestion=" + IdQuestion + "]";
+	public int getIdTheme() {
+		return IdTheme;
+	}
+
+	public void setIdTheme(int idTheme) {
+		IdTheme = idTheme;
 	}
 
 	public String getTheme() {
@@ -24,12 +39,11 @@ public class Theme {
 		Theme = theme;
 	}
 
-	public int getIdQuestion() {
-		return IdQuestion;
+	@Override
+	public String toString() {
+		return "Theme [IdTheme=" + IdTheme + ", Theme=" + Theme + "]";
 	}
-
-	public void setIdQuestion(int idQuestion) {
-		IdQuestion = idQuestion;
-	}
+	
+	
 
 }

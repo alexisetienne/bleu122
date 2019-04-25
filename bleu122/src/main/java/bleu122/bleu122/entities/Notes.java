@@ -1,57 +1,74 @@
 package bleu122.bleu122.entities;
 
-public class Notes {
-	
-	private int IdNotes;
-	private int IdStudent;
-	private int IdQuestion;
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity
+public class Notes implements Serializable{
+	@Id
+	private int IdNote;
 	private double Note;
+	@ManyToOne
+	@JoinColumn(name="ID_STUDENT")
+	private Student student ;
+	@JoinColumn(name="ID_QUESTION")
+	private Question question;
 	
-    public Notes(int IdNotes, int IdStudent, int IdQuestion, double Note) {
-    	this.IdNotes = IdNotes;
-    	this.IdStudent = IdStudent;
-    	this.IdQuestion = IdQuestion;
+	public Notes(int IdNote,double Note, Student student, Question question) {
+    	this.IdNote = IdNote;
     	this.Note = Note;
-    	
-    	 	
-    }
+    	this.student = student;
+    	this.question = question;
+   }
 
-	@Override
-	public String toString() {
-		return "Notes [IdNotes=" + IdNotes + ", IdStudent=" + IdStudent + ", IdQuestion=" + IdQuestion + ", Note="
-				+ Note + "]";
+
+	public int getIdNote() {
+		return IdNote;
 	}
 
-	public int getIdNotes() {
-		return IdNotes;
+
+	public void setIdNote(int idNote) {
+		IdNote = idNote;
 	}
 
-	public void setIdNotes(int idNotes) {
-		IdNotes = idNotes;
-	}
-
-	public int getIdStudent() {
-		return IdStudent;
-	}
-
-	public void setIdStudent(int idStudent) {
-		IdStudent = idStudent;
-	}
-
-	public int getIdQuestion() {
-		return IdQuestion;
-	}
-
-	public void setIdQuestion(int idQuestion) {
-		IdQuestion = idQuestion;
-	}
 
 	public double getNote() {
 		return Note;
 	}
 
-	public void setNote(int note) {
+
+	public void setNote(double note) {
 		Note = note;
+	}
+
+
+	public Student getStudent() {
+		return student;
+	}
+
+
+	public void setStudent(Student student) {
+		this.student = student;
+	}
+
+
+	public Question getQuestion() {
+		return question;
+	}
+
+
+	public void setQuestion(Question question) {
+		this.question = question;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Notes [IdNote=" + IdNote + ", Note=" + Note + ", student=" + student + ", question=" + question + "]";
 	}
 
 }
