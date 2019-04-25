@@ -1,13 +1,13 @@
 package bleu122.bleu122.entities;
 
-public class Etudiant {
+public class Student {
 	
 	private int IdStudent;
 	private String Login;
 	private String Password;
 	
 	
-	public Etudiant(int IdStudent, String Login, String Password) {
+	public Student(int IdStudent, String Login, String Password) {
 		this.IdStudent = IdStudent;
 		this.Login = Login;
 		this.Password = Password;
