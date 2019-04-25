@@ -16,7 +16,7 @@ public class Etudiant {
 
 	@Override
 	public String toString() {
-		return "Etudiant [IdStudent=" + IdStudent + ", Login=" + Login + ", Password=" + Password + "]";
+		return "Etudiant [IdStudent=" + IdStudent  + ", Login=" + Login + ", Password=" + Password + "]";
 	}
 
 
