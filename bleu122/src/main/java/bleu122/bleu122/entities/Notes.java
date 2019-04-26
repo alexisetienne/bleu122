@@ -18,6 +18,10 @@ public class Notes implements Serializable{
 	@JoinColumn(name="ID_QUESTION")
 	private Question question;
 	
+	public Notes() {
+		super();
+	}
+	
 	public Notes(int IdNote,double Note, Student student, Question question) {
     	this.IdNote = IdNote;
     	this.Note = Note;

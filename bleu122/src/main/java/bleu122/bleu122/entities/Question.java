@@ -21,6 +21,10 @@ public class Question implements Serializable {
 	@OneToMany(mappedBy="question",fetch=FetchType.LAZY)
 	private List<Notes> notes;
 	
+ public Question() {
+	 super();
+ }
+	
 	
 	public Question(int IdQuestion, String Question, String Theme) {
 		this.IdQuestion = IdQuestion;

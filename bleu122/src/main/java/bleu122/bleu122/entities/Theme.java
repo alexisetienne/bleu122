@@ -11,11 +11,16 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Theme implements Serializable {
-	@Id @GeneratedValue
+	@Id 
+	@GeneratedValue
 	private int IdTheme;
 	private String Theme;
 	@OneToMany(mappedBy="theme",fetch=FetchType.LAZY)
 	private Collection<Question> questions;
+	
+	public Theme() {
+		super();
+	}
 	
 	public Theme( int IdTheme,String Theme    ) {
 		this.IdTheme = IdTheme;

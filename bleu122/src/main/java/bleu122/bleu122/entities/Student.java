@@ -19,6 +19,10 @@ public class Student implements Serializable {
 	@OneToMany(mappedBy="note",fetch=FetchType.LAZY)
 	private Collection<Notes> notes;
 //	private List<Notes> notes;
+	
+	public Student() {
+		super();
+	}
 		
 	public Student(int IdStudent, String Login, String Password) {
 		this.IdStudent = IdStudent;
