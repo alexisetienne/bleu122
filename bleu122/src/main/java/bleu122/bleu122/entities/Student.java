@@ -1,5 +1,20 @@
 package bleu122.bleu122.entities;
 
+<<<<<<< HEAD
+public class Student {
+	
+	private int IdStudent;
+	private String Login;
+	private String Password;
+	
+	
+	public Student(int IdStudent, String Login, String Password) {
+		this.IdStudent = IdStudent;
+		this.Login = Login;
+		this.Password = Password;
+	}
+
+=======
 import java.io.Serializable;
 import java.util.Collection;
 //import java.util.List;
@@ -29,6 +44,7 @@ public class Student implements Serializable {
 		this.Login = Login;
 		this.Password = Password;
 	}
+>>>>>>> branch 'master' of https://github.com/alexisetienne/bleu122.git
 
 	@Override
 	public String toString() {
