@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 public class Theme implements Serializable {
 	@Id 
 	@GeneratedValue
-	private int IdTheme;
+	private Long IdTheme;
 	private String Theme;
 	@OneToMany(mappedBy="theme",fetch=FetchType.LAZY)
 	private Collection<Question> questions;
@@ -22,17 +22,17 @@ public class Theme implements Serializable {
 		super();
 	}
 	
-	public Theme( int IdTheme,String Theme    ) {
+	public Theme( Long IdTheme,String Theme    ) {
 		this.IdTheme = IdTheme;
 		this.Theme = Theme;
 		
 	}
 
-	public int getIdTheme() {
+	public Long getIdTheme() {
 		return IdTheme;
 	}
 
-	public void setIdTheme(int idTheme) {
+	public void setIdTheme(Long idTheme) {
 		IdTheme = idTheme;
 	}
 

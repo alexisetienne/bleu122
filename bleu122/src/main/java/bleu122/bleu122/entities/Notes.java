@@ -3,6 +3,7 @@ package bleu122.bleu122.entities;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -10,19 +11,21 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Notes implements Serializable{
 	@Id
-	private int IdNote;
+	@GeneratedValue
+	private Long IdNote;
 	private double Note;
 	@ManyToOne
-	@JoinColumn(name="ID_STUDENT")
+	@JoinColumn(name="IdStudent")
 	private Student student ;
-	@JoinColumn(name="ID_QUESTION")
+	@ManyToOne
+	@JoinColumn(name="IdQuestion")
 	private Question question;
 	
 	public Notes() {
 		super();
 	}
 	
-	public Notes(int IdNote,double Note, Student student, Question question) {
+	public Notes(Long IdNote,double Note, Student student, Question question) {
     	this.IdNote = IdNote;
     	this.Note = Note;
     	this.student = student;
@@ -30,12 +33,12 @@ public class Notes implements Serializable{
    }
 
 
-	public int getIdNote() {
+	public Long getIdNote() {
 		return IdNote;
 	}
 
 
-	public void setIdNote(int idNote) {
+	public void setIdNote(Long idNote) {
 		IdNote = idNote;
 	}
 

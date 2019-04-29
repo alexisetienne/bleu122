@@ -13,10 +13,10 @@ import javax.persistence.OneToMany;
 @Entity
 public class Question implements Serializable {
 	@Id
-	private int IdQuestion;
+	private Long IdQuestion;
 	private String Question;
 	@ManyToOne
-	@JoinColumn(name="ID_THEME")
+	@JoinColumn(name="IdTheme")
 	private Theme theme;
 	@OneToMany(mappedBy="question",fetch=FetchType.LAZY)
 	private List<Notes> notes;
@@ -26,7 +26,7 @@ public class Question implements Serializable {
  }
 	
 	
-	public Question(int IdQuestion, String Question, String Theme) {
+	public Question(Long IdQuestion, String Question, String Theme) {
 		this.IdQuestion = IdQuestion;
 		this.Question = Question;
 		this.theme = theme;
@@ -34,12 +34,12 @@ public class Question implements Serializable {
 	}
 
 
-	public int getIdQuestion() {
+	public Long getIdQuestion() {
 		return IdQuestion;
 	}
 
 
-	public void setIdQuestion(int idQuestion) {
+	public void setIdQuestion(Long idQuestion) {
 		IdQuestion = idQuestion;
 	}
 
